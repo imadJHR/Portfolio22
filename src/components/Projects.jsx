@@ -14,7 +14,16 @@ const projects = [
   {
     id: 1,
     title: "Site Spa & Massage Reservation",
-    description: "A Front-end Website  solution with React and Tailwind CSS",
+    description: "Firdaous Spa - Site Web de relaxation et de bien-être
+J'ai développé le site Web de Firdaous Spa, un centre de relaxation et de bien-être haut de gamme, garantissant une expérience utilisateur fluide. Le site met en valeur les services luxueux du spa, notamment les thérapies de massage, les soins de beauté et les forfaits bien-être, avec un design élégant et moderne.
+
+Principales caractéristiques :
+
+Conception réactive : optimisée pour les utilisateurs de bureau et mobiles, garantissant l'accessibilité sur tous les appareils.
+Visuels attrayants : images de haute qualité et palettes de couleurs apaisantes pour refléter l'atmosphère sereine du spa.
+Navigation conviviale : sections faciles à explorer pour les services, les tarifs et les coordonnées.
+Vitesse de chargement rapide : conçu pour des performances optimales et un accès rapide.
+Ce projet met en valeur ma capacité à créer des sites Web visuellement attrayants et fonctionnels qui répondent aux besoins des clients tout en se concentrant sur la satisfaction des utilisateurs.",
     image: prj1,
     liveUrl: "https://firdaousspa.netlify.app/",
   },
