@@ -49,7 +49,7 @@ const DeveloperHero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Hi, I'm {"<IMAD JOHAR/>"}
+          {"<IMAD JOHAR/>"}
         </motion.h1>
 
         <motion.h2
@@ -58,7 +58,7 @@ const DeveloperHero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Web Developer & UI/UX Enthusiast
+          Développeur Web et passionné d'UI/UX
         </motion.h2>
 
         <motion.p
@@ -67,22 +67,13 @@ const DeveloperHero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          Crafting beautiful and functional web experiences with cutting-edge
-          technologies.
+          Créer des expériences Web belles et fonctionnelles avec des technologies de pointe.
         </motion.p>
 
         {/* Stats */}
         <div className="flex justify-center items-center space-x-8 mb-12">
           
-          <div className="text-center">
-            <CountUp
-              end={2}
-              duration={2.5}
-              decimals={1}
-              className="text-4xl font-bold text-blue-400"
-            />
-            <p className="text-sm uppercase">Years Experience</p>
-          </div>
+          
           <div className="text-center">
             <CountUp
               end={100}
@@ -90,7 +81,7 @@ const DeveloperHero = () => {
               suffix="%"
               className="text-4xl font-bold text-blue-400"
             />
-            <p className="text-sm uppercase">Client Satisfaction</p>
+            <p className="text-sm uppercase">Satisfaction des clients</p>
           </div>
         </div>
 
@@ -100,7 +91,7 @@ const DeveloperHero = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <a href="#projects"> View My Work</a>
+          <a href="#projects">Voir mon travail </a>
         </motion.button>
         {/* Tech Marquee */}
         <motion.div

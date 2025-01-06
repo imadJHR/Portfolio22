@@ -3,6 +3,7 @@ import {
   AiOutlineHome,
   AiOutlineUser,
   AiOutlineFolderOpen,
+  AiOutlineDollar,
   AiOutlineMail,
 } from "react-icons/ai";
 import NavLink from "./NavLink";
@@ -10,10 +11,11 @@ import logo from "../assets/Logo.2.png"
 
 function Navbar() {
   const navItems = [
-    { label: "Home", icon: AiOutlineHome, href: "#home" },
-    { label: "About", icon: AiOutlineUser, href: "#about" },
-    { label: "Projects", icon: AiOutlineFolderOpen, href: "#projects" },
+    { label: "Acceuil", icon: AiOutlineHome, href: "#home" },
+    { label: "À propos", icon: AiOutlineUser, href: "#about" },
+    { label: "Projets", icon: AiOutlineFolderOpen, href: "#projects" },
     { label: "Contact", icon: AiOutlineMail, href: "#contact" },
+    { label: "Tarifs", icon: AiOutlineDollar, href: "#pricing" },
   ];
 
   return (
