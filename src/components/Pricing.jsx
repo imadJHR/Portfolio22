@@ -20,7 +20,7 @@ import {
 const pricingPlans = [
   {
     title: "Site Vitrine - Forfait de base",
-    price: "2500 Dhs",
+    price: "2000 Dhs",
     features: [
       "Design personnalisé ou thème préexistant",
       "Pages de base (Accueil, À propos, Contact, Services)",
@@ -28,14 +28,14 @@ const pricingPlans = [
       "SEO de base",
       "Hébergement et nom de domaine pendant 1 an",
     ],
-    icon: FaDesktop,
+    icon: FaRocket,
     color: "from-emerald-400 to-teal-600",
     description:
       "Idéal pour les petites entreprises ou les indépendants qui souhaitent un site simple et professionnel pour se présenter en ligne.",
   },
   {
     title: "Site E-commerce - Forfait de base",
-    price: "5,000 Dhs",
+    price: "4000 Dhs",
     features: [
       "Design personnalisé ou thème e-commerce",
       "Catalogue produit jusqu'à 20 produits",
@@ -51,21 +51,22 @@ const pricingPlans = [
       "Parfait pour les entreprises souhaitant vendre des produits en ligne avec des fonctionnalités de base de commerce électronique.",
   },
   {
-    title: "Site Dynamique - Forfait de base",
-    price: "3,500 Dhs",
+    title: "Landing Page - Forfait de base",
+    price: "1000 Dhs",
     features: [
-      "Développement de fonctionnalités dynamiques (bases de données, formulaires)",
-      "Design mobile responsive et interactif",
-      "Pages de contenu dynamique (Blog, Actualités)",
-      "Fonctionnalité de recherche avancée",
+      "Design professionnel et percutant",
+      "Optimisation pour la conversion (CTA)",
+      "Design mobile responsive",
       "Hébergement et nom de domaine pendant 1 an",
+      "SEO de base",
     ],
-    icon: FaLaptopCode,
-    color: "from-pink-400 to-rose-600",
+    icon: FaDesktop,
+    color: "from-indigo-400 to-purple-600",
     description:
-      "Idéal pour les sites nécessitant des fonctionnalités dynamiques et une interaction avec les utilisateurs (Blog, Forum, Actualités).",
+      "Idéal pour promouvoir un événement, un produit ou une campagne spécifique avec une page unique et optimisée pour la conversion.",
   },
 ];
+
 
 const PricingPlans = () => {
   return (
