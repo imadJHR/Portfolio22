@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useRef } from 'react'
 import { motion } from 'framer-motion'
-import { Send } from 'lucide-react'
+import { Send, Mail, User, MessageSquare } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -88,8 +88,8 @@ const AnimatedContact = () => {
           position: 'top-right',
         })
         setFormData({ name: '', email: '', message: '' })
-        triggerConfetti() // Trigger the confetti animation
-        playSuccessSound() // Play the success sound
+        triggerConfetti()
+        playSuccessSound()
       } else {
         toast.error('Failed to send the message. Please try again.', {
           position: 'top-right',
@@ -112,16 +112,40 @@ const AnimatedContact = () => {
       onMouseMove={handleMouseMove}
       id="contact"
     >
-      {/* Toast Notifications */}
       <ToastContainer />
 
-      {/* Animated Background */}
       <motion.div
         className="absolute inset-0 opacity-30"
         animate={{
           backgroundImage: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.3) 0%, rgba(16, 185, 129, 0) 50%)`,
         }}
         transition={{ type: 'spring', damping: 10, stiffness: 100 }}
+      />
+
+      {/* Decorative Elements */}
+      <motion.div
+        className="absolute top-10 left-10 w-20 h-20 bg-blue-500 rounded-full opacity-20"
+        animate={{
+          scale: [1, 1.2, 1],
+          rotate: [0, 180, 360],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      />
+      <motion.div
+        className="absolute bottom-10 right-10 w-16 h-16 bg-green-500 rounded-full opacity-20"
+        animate={{
+          scale: [1, 1.3, 1],
+          rotate: [360, 180, 0],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "linear"
+        }}
       />
 
       <div className="container px-4 relative z-10">
@@ -143,7 +167,7 @@ const AnimatedContact = () => {
             </motion.div>
           </div>
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
+            <div className="relative">
               <label htmlFor="name" className="block text-sm font-medium mb-2">
                 Name
               </label>
@@ -154,10 +178,11 @@ const AnimatedContact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full bg-gray-800 border-gray-700 text-white"
+                className="w-full bg-gray-800 border-gray-700 text-white pl-10"
               />
+              <User className="absolute left-3 top-9 text-gray-400" size={18} />
             </div>
-            <div>
+            <div className="relative">
               <label htmlFor="email" className="block text-sm font-medium mb-2">
                 Email
               </label>
@@ -168,10 +193,11 @@ const AnimatedContact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full bg-gray-800 border-gray-700 text-white"
+                className="w-full bg-gray-800 border-gray-700 text-white pl-10"
               />
+              <Mail className="absolute left-3 top-9 text-gray-400" size={18} />
             </div>
-            <div>
+            <div className="relative">
               <label
                 htmlFor="message"
                 className="block text-sm font-medium mb-2"
@@ -184,9 +210,10 @@ const AnimatedContact = () => {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                className="w-full bg-gray-800 border-gray-700 text-white"
+                className="w-full bg-gray-800 border-gray-700 text-white pl-10 pt-8"
                 rows={4}
               />
+              <MessageSquare className="absolute left-3 top-9 text-gray-400" size={18} />
             </div>
             <Button type="submit" className="w-full">
               Send Message

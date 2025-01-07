@@ -20,7 +20,7 @@ import {
 const pricingPlans = [
   {
     title: "Site Vitrine - Forfait de base",
-    price: "2000 Dhs",
+    price: "2500 Dhs",
     features: [
       "Design personnalisé ou thème préexistant",
       "Pages de base (Accueil, À propos, Contact, Services)",
@@ -29,7 +29,7 @@ const pricingPlans = [
       "Hébergement et nom de domaine pendant 1 an",
     ],
     icon: FaDesktop,
-    color: "from-green-400 to-green-600",
+    color: "from-emerald-400 to-teal-600",
     description:
       "Idéal pour les petites entreprises ou les indépendants qui souhaitent un site simple et professionnel pour se présenter en ligne.",
   },
@@ -38,14 +38,14 @@ const pricingPlans = [
     price: "5,000 Dhs",
     features: [
       "Design personnalisé ou thème e-commerce",
-      "Catalogue produit jusqu'à 25 produits",
+      "Catalogue produit jusqu'à 20 produits",
       "Paiements en ligne",
       "Design mobile responsive",
       "Hébergement et nom de domaine pendant 1 an",
       "SEO e-commerce de base",
     ],
     icon: FaCrown,
-    color: "from-blue-400 to-blue-600",
+    color: "from-amber-400 to-orange-600",
     popular: true,
     description:
       "Parfait pour les entreprises souhaitant vendre des produits en ligne avec des fonctionnalités de base de commerce électronique.",
@@ -61,7 +61,7 @@ const pricingPlans = [
       "Hébergement et nom de domaine pendant 1 an",
     ],
     icon: FaLaptopCode,
-    color: "from-purple-400 to-purple-600",
+    color: "from-pink-400 to-rose-600",
     description:
       "Idéal pour les sites nécessitant des fonctionnalités dynamiques et une interaction avec les utilisateurs (Blog, Forum, Actualités).",
   },
@@ -71,7 +71,7 @@ const PricingPlans = () => {
   return (
     <section
       id="pricing"
-      className="py-20 px-4 min-h-screen relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
+      className="py-20 px-4 min-h-screen relative overflow-hidden bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900"
     >
       <div className="absolute inset-0">
         <svg
@@ -98,7 +98,7 @@ const PricingPlans = () => {
             Choisissez votre forfait
           </h2>
           <motion.div
-            className="h-1 w-24 bg-blue-500 mx-auto"
+            className="h-1 w-24 bg-gradient-to-r from-amber-400 to-orange-600 mx-auto"
             initial={{ width: 0 }}
             animate={{ width: 96 }}
             transition={{ duration: 0.5, delay: 0.5 }}
@@ -114,13 +114,13 @@ const PricingPlans = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Card
-                className={`h-full flex flex-col relative overflow-hidden ${
-                  plan.popular ? "border-2 border-purple-500" : ""
+                className={`h-full flex flex-col relative overflow-hidden bg-white/10 backdrop-blur-lg ${
+                  plan.popular ? "border-2 border-amber-400" : ""
                 }`}
               >
                 {plan.popular && (
-                  <Badge className="absolute top-4 right-4 bg-purple-500">
-                    Popular
+                  <Badge className="absolute top-4 right-4 bg-amber-400 text-gray-900">
+                    Populaire
                   </Badge>
                 )}
                 <CardHeader
@@ -145,8 +145,8 @@ const PricingPlans = () => {
                     {plan.price}
                   </div>
                 </CardHeader>
-                <CardContent className="mt-6 flex-grow">
-                  <p className="text-gray-600 mb-4">{plan.description}</p>
+                <CardContent className="mt-6 flex-grow text-white">
+                  <p className="text-gray-300 mb-4">{plan.description}</p>
                   <ul className="space-y-2">
                     {plan.features.map((feature, idx) => (
                       <motion.li
@@ -160,7 +160,7 @@ const PricingPlans = () => {
                         }}
                       >
                         <svg
-                          className="w-5 h-5 text-green-500 flex-shrink-0"
+                          className="w-5 h-5 text-green-400 flex-shrink-0"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -173,19 +173,19 @@ const PricingPlans = () => {
                             d="M5 13l4 4L19 7"
                           ></path>
                         </svg>
-                        <span className="text-sm">{feature}</span>
+                        <span className="text-sm text-gray-300">{feature}</span>
                       </motion.li>
                     ))}
                   </ul>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white transition-all duration-300 transform hover:scale-105">
+                  <Button className="w-full bg-gradient-to-r from-amber-400 to-orange-600 hover:from-amber-500 hover:to-orange-700 text-gray-900 font-semibold transition-all duration-300 transform hover:scale-105">
                     <a
-                      href="https://wa.me/+212645288216"
                       target="_blank"
-                      rel="noopener noreferrer"
+                      href="https://wa.me/212645288216"
+                      className="hover:text-white"
                     >
-                      Get Started
+                      Commencer
                     </a>
                   </Button>
                 </CardFooter>

@@ -25,20 +25,43 @@ const AboutMe = () => {
       id="about"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <motion.h2
-          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 md:mb-16 text-center relative"
+        <motion.div
+          className="text-center mb-12 sm:mb-16 md:mb-20"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          A propos de moi
-          <motion.span
-            className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 sm:w-20 md:w-24 h-1 bg-blue-500"
-            initial={{ width: 0 }}
-            animate={{ width: "4rem" }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-          ></motion.span>
-        </motion.h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 relative inline-block">
+            A propos de moi
+            <motion.span
+              className="absolute bottom-0 left-0 w-full h-1 bg-blue-500"
+              initial={{ width: 0 }}
+              animate={{ width: "100%" }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            />
+          </h2>
+          <motion.div
+            className="w-16 h-16 mx-auto"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+          >
+            <svg
+              className="w-full h-full text-blue-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </motion.div>
+        </motion.div>
 
         <div className="flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-12">
           <motion.div

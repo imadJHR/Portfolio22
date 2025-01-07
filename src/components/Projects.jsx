@@ -1,17 +1,10 @@
-import React, { useState } from "react";
-import { motion, useAnimation } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
 import { Code, Palette, Zap } from 'lucide-react';
 import prj1 from "../assets/Capture d'écran 2024-12-20 154028.png"
 import prj2 from "../assets/Capture d'écran 2025-01-06 022010.png"
+import prj3 from "../assets/Capture d'écran 2025-01-07 015848.png"
 
 const projects = [
   {
@@ -32,11 +25,18 @@ const projects = [
     liveUrl: "https://laburratinagroupe.com/",
     icon: Code,
   },
+  {
+    id: 3,
+    title: "Sou9 Maghrib",
+    description:
+      "Souq Maghrib est une plateforme e-commerce moderne et conviviale développée pour offrir une expérience d'achat fluide et intuitive. Ce site présente une large gamme de produits avec une gestion dynamique des catégories, des détails clairs pour chaque article, et un design responsive adapté à tous les appareils. Caractéristiques principales : Catalogue de produits : Une présentation claire et attrayante des produits avec des images, descriptions détaillées, et informations de prix. Système de gestion : Les produits peuvent être facilement ajoutés, mis à jour ou supprimés via un tableau de bord dédié. Performance optimale : Développé en utilisant les meilleures pratiques pour garantir une navigation rapide et sans bug. Design responsive : Une interface qui s'adapte parfaitement aux smartphones, tablettes et ordinateurs. Technologies utilisées : MERN Stack (MongoDB, Express.js, React.js, Node.js) pour le backend et le frontend, ainsi que Tailwind CSS pour un style moderne et épuré. Souq Maghrib démontre ma capacité à créer une plateforme e-commerce professionnelle, intégrant des fonctionnalités modernes et une gestion simplifiée des produits. Ce projet reflète également ma maîtrise de la stack MERN et de principes de développement web axés sur l'utilisateur.",
+    image: prj3,
+    liveUrl: "https://sou9maghrib.netlify.app/",
+    icon: Code,
+  },
 ];
 
 const MyProjects = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
-  const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -82,15 +82,43 @@ const MyProjects = () => {
   return (
     <section className="py-20 min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 overflow-hidden" id="projects">
       <div className="container mx-auto px-4">
-        <motion.h2
-          className="text-5xl font-bold mb-16 text-center text-gray-800 relative"
+        <motion.div
+          className="text-center mb-16"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-         Mes projets
-          <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-blue-500 mt-4"></span>
-        </motion.h2>
+          <h2 className="text-5xl font-bold mb-4 text-gray-800 relative inline-block">
+            Mes projets
+            <motion.span
+              className="absolute bottom-0 left-0 w-full h-1 bg-blue-500"
+              initial={{ width: 0 }}
+              animate={{ width: "100%" }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            />
+          </h2>
+          <motion.div
+            className="w-16 h-16 mx-auto mt-4"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+          >
+            <svg
+              className="w-full h-full text-blue-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+              />
+            </svg>
+          </motion.div>
+        </motion.div>
 
         <motion.div
           ref={ref}
@@ -112,12 +140,14 @@ const MyProjects = () => {
                   className="w-full h-64 object-cover"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 transition-opacity duration-300 hover:opacity-100">
-                  <Button
-                    onClick={() => setSelectedProject(project)}
-                    className="bg-white text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-300"
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white text-gray-800 hover:bg-blue-500 hover:text-white transition-colors duration-300 px-4 py-2 rounded"
                   >
                     View Project
-                  </Button>
+                  </a>
                 </div>
               </div>
               <div className="p-6 flex flex-col flex-grow">
@@ -127,12 +157,14 @@ const MyProjects = () => {
                 <p className="text-gray-600 mb-4 flex-grow line-clamp-4">
                   {project.description}
                 </p>
-                <Button
-                  onClick={() => setSelectedProject(project)}
-                  className="mt-auto w-full bg-blue-500 hover:bg-blue-600 text-white transition-colors duration-300"
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-auto w-full bg-blue-500 hover:bg-blue-600 text-white transition-colors duration-300 text-center py-2 rounded"
                 >
                   View Live
-                </Button>
+                </a>
               </div>
               <motion.div
                 className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md"
@@ -153,30 +185,6 @@ const MyProjects = () => {
           <Zap className="w-12 h-12 text-yellow-400 animate-pulse" />
         </motion.div>
       </div>
-
-      <Dialog
-        open={selectedProject !== null}
-        onOpenChange={() => setSelectedProject(null)}
-      >
-        <DialogContent className="sm:max-w-[90vw] sm:max-h-[90vh]">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-gray-800">{selectedProject?.title}</DialogTitle>
-            <DialogDescription className="text-gray-600 mt-2">
-              {selectedProject?.description}
-            </DialogDescription>
-          </DialogHeader>
-          <div className="mt-6 aspect-video w-full rounded-lg overflow-hidden shadow-lg">
-            {selectedProject && (
-              <iframe
-                src={selectedProject.liveUrl}
-                title={selectedProject.title}
-                className="w-full h-full border-0"
-                allowFullScreen
-              />
-            )}
-          </div>
-        </DialogContent>
-      </Dialog>
     </section>
   );
 };
