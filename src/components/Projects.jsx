@@ -1,10 +1,10 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Code, Palette, Zap } from 'lucide-react';
 import prj1 from "../assets/Capture d'écran 2024-12-20 154028.png"
 import prj2 from "../assets/Capture d'écran 2025-01-06 022010.png"
 import prj3 from "../assets/Capture d'écran 2025-01-07 015848.png"
+import iptv from "../assets/iptv.png"
 
 const projects = [
   {
@@ -32,6 +32,15 @@ const projects = [
       "Souq Maghrib est une plateforme e-commerce moderne et conviviale développée pour offrir une expérience d'achat fluide et intuitive. Ce site présente une large gamme de produits avec une gestion dynamique des catégories, des détails clairs pour chaque article, et un design responsive adapté à tous les appareils. Caractéristiques principales : Catalogue de produits : Une présentation claire et attrayante des produits avec des images, descriptions détaillées, et informations de prix. Système de gestion : Les produits peuvent être facilement ajoutés, mis à jour ou supprimés via un tableau de bord dédié. Performance optimale : Développé en utilisant les meilleures pratiques pour garantir une navigation rapide et sans bug. Design responsive : Une interface qui s'adapte parfaitement aux smartphones, tablettes et ordinateurs. Technologies utilisées : MERN Stack (MongoDB, Express.js, React.js, Node.js) pour le backend et le frontend, ainsi que Tailwind CSS pour un style moderne et épuré. Souq Maghrib démontre ma capacité à créer une plateforme e-commerce professionnelle, intégrant des fonctionnalités modernes et une gestion simplifiée des produits. Ce projet reflète également ma maîtrise de la stack MERN et de principes de développement web axés sur l'utilisateur.",
     image: prj3,
     liveUrl: "https://sou9maghrib.netlify.app/",
+    icon: Code,
+  },
+  {
+    id: 4,
+    title: "RK Service",
+    description:
+      "RK Service est une application Web de pointe conçue pour fournir [service ou objectif spécifique]. La plateforme est conçue en mettant l'accent sur [fonctionnalités ou avantages clés], garantissant une expérience utilisateur fluide et efficace. L'application exploite les technologies Web modernes pour offrir une solution robuste et évolutive.Technologies utilisées :Frontend : Tailwind, React.js Contrôle de version : Git, GitHub Déploiement : Netlify Outils supplémentaires : Webpack, Babel, ESLint",
+    image: iptv,
+    liveUrl: "https://rk-service.netlify.app/",
     icon: Code,
   },
 ];
