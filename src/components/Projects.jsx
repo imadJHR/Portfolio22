@@ -5,6 +5,7 @@ import prj1 from "../assets/Capture d'écran 2024-12-20 154028.png"
 import prj2 from "../assets/Capture d'écran 2025-01-06 022010.png"
 import prj3 from "../assets/Capture d'écran 2025-01-07 015848.png"
 import iptv from "../assets/iptv.png"
+import tonka from "../assets/tonka.png"
 
 const projects = [
   {
@@ -41,6 +42,15 @@ const projects = [
       "RK Service est une application Web de pointe conçue pour fournir [service ou objectif spécifique]. La plateforme est conçue en mettant l'accent sur [fonctionnalités ou avantages clés], garantissant une expérience utilisateur fluide et efficace. L'application exploite les technologies Web modernes pour offrir une solution robuste et évolutive.Technologies utilisées :Frontend : Tailwind, React.js Contrôle de version : Git, GitHub Déploiement : Netlify Outils supplémentaires : Webpack, Babel, ESLint",
     image: iptv,
     liveUrl: "https://rk-service.netlify.app/",
+    icon: Code,
+  },
+  {
+    id: 5,
+    title: "Atelier TONKA",
+    description:
+      "Atelier Tonka est un site vitrine élégant conçu pour présenter les services et le savoir-faire d'un atelier spécialisé dans la création et la rénovation. Ce site reflète une esthétique professionnelle et moderne, mettant en valeur l'expertise artisanale à travers une présentation soignée et intuitive.Points forts du site : Interface utilisateur : Design épuré et navigation fluide pour une expérience utilisateur optimale. Présentation visuelle : Mise en avant des projets réalisés, des services offerts, et des valeurs de l'atelier à travers des images de haute qualité. Accessibilité : Compatible avec tous les appareils (mobile, tablette, ordinateur). Contact simplifié : Une section dédiée pour faciliter la prise de contact avec l'atelier. Ce site vitrine offre à l'Atelier Tonka une plateforme numérique pour attirer de nouveaux clients, renforcer sa visibilité en ligne, et valoriser son savoir-faire unique.",
+    image: tonka,
+    liveUrl: "https://atelier-tonka.netlify.app/",
     icon: Code,
   },
 ];
