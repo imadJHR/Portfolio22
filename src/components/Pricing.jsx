@@ -20,7 +20,7 @@ import {
 const pricingPlans = [
   {
     title: "Site Vitrine - Forfait de base",
-    price: "2000 Dhs",
+    price: "2500 Dhs",
     features: [
       "Design personnalisé ou thème préexistant",
       "Pages de base (Accueil, À propos, Contact, Services)",
@@ -35,7 +35,7 @@ const pricingPlans = [
   },
   {
     title: "Site E-commerce - Forfait de base",
-    price: "4000 Dhs",
+    price: "5000 Dhs",
     features: [
       "Design personnalisé ou thème e-commerce",
       "Catalogue produit jusqu'à 20 produits",
