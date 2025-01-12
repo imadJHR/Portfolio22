@@ -35,7 +35,7 @@ const pricingPlans = [
   },
   {
     title: "Site E-commerce - Forfait de base",
-    price: "5000 Dhs",
+    price: "4500 Dhs",
     features: [
       "Design personnalisé ou thème e-commerce",
       "Catalogue produit jusqu'à 20 produits",
