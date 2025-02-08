@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Code, Palette, Zap } from 'lucide-react';
-import prj1 from "../assets/Capture d'écran 2024-12-20 154028.png"
-import prj2 from "../assets/Capture d'écran 2025-01-06 022010.png"
-import prj3 from "../assets/Capture d'écran 2025-01-07 015848.png"
-import iptv from "../assets/iptv.png"
-import tonka from "../assets/tonka.png"
+import { Code, Palette, Zap } from "lucide-react";
+import prj1 from "../assets/Capture d'écran 2024-12-20 154028.png";
+import prj2 from "../assets/Capture d'écran 2025-01-06 022010.png";
+import prj3 from "../assets/Capture d'écran 2025-01-07 015848.png";
+import iptv from "../assets/iptv.png";
+import tonka from "../assets/tonka.png";
+import copine from "../assets/copine.png";
+import nemsi from "../assets/nemsi.png";
 
 const projects = [
   {
@@ -51,6 +53,22 @@ const projects = [
       "Atelier Tonka est un site vitrine élégant conçu pour présenter les services et le savoir-faire d'un atelier spécialisé dans la création et la rénovation. Ce site reflète une esthétique professionnelle et moderne, mettant en valeur l'expertise artisanale à travers une présentation soignée et intuitive.Points forts du site : Interface utilisateur : Design épuré et navigation fluide pour une expérience utilisateur optimale. Présentation visuelle : Mise en avant des projets réalisés, des services offerts, et des valeurs de l'atelier à travers des images de haute qualité. Accessibilité : Compatible avec tous les appareils (mobile, tablette, ordinateur). Contact simplifié : Une section dédiée pour faciliter la prise de contact avec l'atelier. Ce site vitrine offre à l'Atelier Tonka une plateforme numérique pour attirer de nouveaux clients, renforcer sa visibilité en ligne, et valoriser son savoir-faire unique.",
     image: tonka,
     liveUrl: "https://atelier-tonka.netlify.app/",
+    icon: Code,
+  },
+  {
+    id: 6,
+    title: "Hello Copine",
+    description: "Hello Les Copines est une plateforme en ligne dédiée à la communauté féminine, offrant un espace interactif pour le partage, la discussion et le soutien entre femmes. Le site propose divers contenus et fonctionnalités visant à renforcer les liens et à encourager les échanges au sein de cette communauté. Que vous souhaitiez partager vos expériences, poser des questions ou simplement interagir avec d'autres membres, Hello Les Copines est conçu pour être un espace convivial et inclusif pour toutes.",
+    image: copine,
+    liveUrl: "https://copine.netlify.app/",
+    icon: Code,
+  },
+  {
+    id: 7,
+    title: "Nemsi Media",
+    description: "Nemsi Media is a digital agency that provides high-quality web development, design, and digital marketing services. With a sleek and modern approach, Nemsi Media helps businesses establish a strong online presence through custom websites, e-commerce solutions, branding, and SEO strategies. Whether you need a stunning portfolio, an advanced web application, or a complete digital transformation, Semsi Media delivers tailored solutions to meet your needs. 🚀💡",
+    image: nemsi,
+    liveUrl: "https://nemsi-media.netlify.app/",
     icon: Code,
   },
 ];
@@ -99,7 +117,10 @@ const MyProjects = () => {
   };
 
   return (
-    <section className="py-20 min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 overflow-hidden" id="projects">
+    <section
+      className="py-20 min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 overflow-hidden"
+      id="projects"
+    >
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-16"
@@ -209,4 +230,3 @@ const MyProjects = () => {
 };
 
 export default MyProjects;
-
