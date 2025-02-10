@@ -5,7 +5,6 @@ import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import { ToastContainer } from "react-toastify";
 import Footer from "./components/Footer";
-import Pricing from "./components/Pricing";
 const App = () => {
   return (
     <div>
@@ -14,7 +13,7 @@ const App = () => {
       <Hero />
       <About />
       <Projects />
-      <Pricing/>
+      
       <Contact />
       <Footer />
     </div>
