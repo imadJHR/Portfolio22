@@ -84,7 +84,7 @@ const AboutMe = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              Je détiens des certifications de GoMyCode et j'ai de l'expérience avec des outils modernes comme Tailwind CSS et ShadCN, assurant un code propre et évolutif. À seulement 20 ans, je suis diplômé du baccalauréat avec une volonté d'innover et de fournir des solutions de haute qualité.
+              Je détiens des certifications de GoMyCode et j'ai de l'expérience avec des outils modernes comme Tailwind CSS et ShadCN, assurant un code propre et évolutif. À seulement 21 ans, je suis diplômé du baccalauréat avec une volonté d'innover et de fournir des solutions de haute qualité.
             </motion.p>
             <motion.p
               className="text-gray-300 leading-relaxed text-base sm:text-lg"
