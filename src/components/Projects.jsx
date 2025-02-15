@@ -8,6 +8,7 @@ import iptv from "../assets/iptv.png";
 import tonka from "../assets/tonka.png";
 import copine from "../assets/copine.png";
 import nemsi from "../assets/nemsi.png";
+import bianca from "../assets/bianca.png"
 
 const projects = [
   {
@@ -35,6 +36,14 @@ const projects = [
       "Souq Maghrib est une plateforme e-commerce moderne et conviviale développée pour offrir une expérience d'achat fluide et intuitive. Ce site présente une large gamme de produits avec une gestion dynamique des catégories, des détails clairs pour chaque article, et un design responsive adapté à tous les appareils. Caractéristiques principales : Catalogue de produits : Une présentation claire et attrayante des produits avec des images, descriptions détaillées, et informations de prix. Système de gestion : Les produits peuvent être facilement ajoutés, mis à jour ou supprimés via un tableau de bord dédié. Performance optimale : Développé en utilisant les meilleures pratiques pour garantir une navigation rapide et sans bug. Design responsive : Une interface qui s'adapte parfaitement aux smartphones, tablettes et ordinateurs. Technologies utilisées : MERN Stack (MongoDB, Express.js, React.js, Node.js) pour le backend et le frontend, ainsi que Tailwind CSS pour un style moderne et épuré. Souq Maghrib démontre ma capacité à créer une plateforme e-commerce professionnelle, intégrant des fonctionnalités modernes et une gestion simplifiée des produits. Ce projet reflète également ma maîtrise de la stack MERN et de principes de développement web axés sur l'utilisateur.",
     image: prj3,
     liveUrl: "https://sou9maghrib.netlify.app/",
+    icon: Code,
+  },
+  {
+    id: 8,
+    title: "Cafe Bianca",
+    description: "Café Bianca est un site web élégant et moderne dédié à l’univers du café. Avec une interface épurée et une navigation fluide, il invite les visiteurs à découvrir un large éventail de boissons artisanales, des pâtisseries savoureuses et une ambiance chaleureuse.Le design du site met en avant des images gourmandes et des couleurs douces, créant une expérience immersive pour les amateurs de café. Que ce soit pour explorer le menu, en savoir plus sur l’histoire du café ou simplement apprécier un design raffiné, Café Bianca incarne l’art du café avec passion et authenticité.",
+    image: bianca,
+    liveUrl: "https://demo-cafe-bianca.netlify.app/",
     icon: Code,
   },
   {
@@ -71,6 +80,7 @@ const projects = [
     liveUrl: "https://nemsi-media.netlify.app/",
     icon: Code,
   },
+ 
 ];
 
 const MyProjects = () => {
