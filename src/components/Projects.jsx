@@ -1,14 +1,17 @@
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { Code, Palette, Zap } from "lucide-react";
-import prj1 from "../assets/Capture d'écran 2024-12-20 154028.png";
-import prj2 from "../assets/Capture d'écran 2025-01-06 022010.png";
-import prj3 from "../assets/Capture d'écran 2025-01-07 015848.png";
-import iptv from "../assets/iptv.png";
-import tonka from "../assets/tonka.png";
-import copine from "../assets/copine.png";
-import nemsi from "../assets/nemsi.png";
+"use client"
+
+import { motion } from "framer-motion"
+import { useInView } from "react-intersection-observer"
+import { Code, Palette, Zap } from "lucide-react"
+import prj1 from "../assets/Capture d'écran 2024-12-20 154028.png"
+import prj2 from "../assets/Capture d'écran 2025-01-06 022010.png"
+import prj3 from "../assets/Capture d'écran 2025-01-07 015848.png"
+import iptv from "../assets/iptv.png"
+import tonka from "../assets/tonka.png"
+import copine from "../assets/copine.png"
+import nemsi from "../assets/nemsi.png"
 import bianca from "../assets/bianca.png"
+import labrioche from "../assets/labrioche.png"
 
 const projects = [
   {
@@ -19,6 +22,7 @@ const projects = [
     image: prj1,
     liveUrl: "https://firdaousspa.netlify.app/",
     icon: Palette,
+    status: null,
   },
   {
     id: 2,
@@ -28,6 +32,7 @@ const projects = [
     image: prj2,
     liveUrl: "https://laburratinagroupe.com/",
     icon: Code,
+    status: null,
   },
   {
     id: 3,
@@ -37,23 +42,27 @@ const projects = [
     image: prj3,
     liveUrl: "https://sou9maghrib.netlify.app/",
     icon: Code,
+    status: null,
   },
   {
     id: 8,
     title: "Cafe Bianca",
-    description: "Café Bianca est un site web élégant et moderne dédié à l’univers du café. Avec une interface épurée et une navigation fluide, il invite les visiteurs à découvrir un large éventail de boissons artisanales, des pâtisseries savoureuses et une ambiance chaleureuse.Le design du site met en avant des images gourmandes et des couleurs douces, créant une expérience immersive pour les amateurs de café. Que ce soit pour explorer le menu, en savoir plus sur l’histoire du café ou simplement apprécier un design raffiné, Café Bianca incarne l’art du café avec passion et authenticité.",
+    description:
+      "Café Bianca est un site web élégant et moderne dédié à l'univers du café. Avec une interface épurée et une navigation fluide, il invite les visiteurs à découvrir un large éventail de boissons artisanales, des pâtisseries savoureuses et une ambiance chaleureuse.Le design du site met en avant des images gourmandes et des couleurs douces, créant une expérience immersive pour les amateurs de café. Que ce soit pour explorer le menu, en savoir plus sur l'histoire du café ou simplement apprécier un design raffiné, Café Bianca incarne l'art du café avec passion et authenticité.",
     image: bianca,
     liveUrl: "https://demo-cafe-bianca.netlify.app/",
     icon: Code,
+    status: null,
   },
   {
     id: 4,
     title: "RK Service",
     description:
-      "RK Service est une application Web de pointe conçue pour fournir [service ou objectif spécifique]. La plateforme est conçue en mettant l'accent sur [fonctionnalités ou avantages clés], garantissant une expérience utilisateur fluide et efficace. L'application exploite les technologies Web modernes pour offrir une solution robuste et évolutive.Technologies utilisées :Frontend : Tailwind, React.js Contrôle de version : Git, GitHub Déploiement : Netlify Outils supplémentaires : Webpack, Babel, ESLint",
+      "RK Service est une application Web de pointe conçue pour fournir [service ou objectif spécifique]. La plateforme est conçue en mettant l'accent sur [fonctionnalités ou avantages clés], garantissant une expérience utilisateur fluide et efficace. L'application exploite les technologies Web modernes pour offrir une solution robuste et évolutive.Technologies utilisées :Frontend : Tailwind, React.js Contrôle de version : Git, GitHub Déploiement : Netlify Outils supplémentaires : Webpack, Babel, ESLint",
     image: iptv,
     liveUrl: "https://rk-service.netlify.app/",
     icon: Code,
+    status: null,
   },
   {
     id: 5,
@@ -63,31 +72,45 @@ const projects = [
     image: tonka,
     liveUrl: "https://atelier-tonka.netlify.app/",
     icon: Code,
+    status: null,
   },
   {
     id: 6,
     title: "Hello Copine",
-    description: "Hello Les Copines est une plateforme en ligne dédiée à la communauté féminine, offrant un espace interactif pour le partage, la discussion et le soutien entre femmes. Le site propose divers contenus et fonctionnalités visant à renforcer les liens et à encourager les échanges au sein de cette communauté. Que vous souhaitiez partager vos expériences, poser des questions ou simplement interagir avec d'autres membres, Hello Les Copines est conçu pour être un espace convivial et inclusif pour toutes.",
+    description:
+      "Hello Les Copines est une plateforme en ligne dédiée à la communauté féminine, offrant un espace interactif pour le partage, la discussion et le soutien entre femmes. Le site propose divers contenus et fonctionnalités visant à renforcer les liens et à encourager les échanges au sein de cette communauté. Que vous souhaitiez partager vos expériences, poser des questions ou simplement interagir avec d'autres membres, Hello Les Copines est conçu pour être un espace convivial et inclusif pour toutes.",
     image: copine,
     liveUrl: "https://copine.netlify.app/",
     icon: Code,
+    status: null,
   },
   {
     id: 7,
     title: "Nemsi Media",
-    description: "Nemsi Media is a digital agency that provides high-quality web development, design, and digital marketing services. With a sleek and modern approach, Nemsi Media helps businesses establish a strong online presence through custom websites, e-commerce solutions, branding, and SEO strategies. Whether you need a stunning portfolio, an advanced web application, or a complete digital transformation, Semsi Media delivers tailored solutions to meet your needs. 🚀💡",
+    description:
+      "Nemsi Media is a digital agency that provides high-quality web development, design, and digital marketing services. With a sleek and modern approach, Nemsi Media helps businesses establish a strong online presence through custom websites, e-commerce solutions, branding, and SEO strategies. Whether you need a stunning portfolio, an advanced web application, or a complete digital transformation, Semsi Media delivers tailored solutions to meet your needs. 🚀💡",
     image: nemsi,
     liveUrl: "https://nemsi-media.netlify.app/",
     icon: Code,
+    status: null,
   },
- 
-];
+  {
+    id: 8,
+    title: "Restaurant La Brioche",
+    description:
+      "Développé en MERN stack, ce site e-commerce offre une expérience fluide avec gestion des produits, panier dynamique et tableau de bord admin. L'interface moderne, conçue avec Tailwind CSS et ShadCN, assure une navigation optimale. 🚀",
+    image: labrioche,
+    liveUrl: "https://labrioche.netlify.app/",
+    icon: Code,
+    status: "en cours",
+  },
+]
 
 const MyProjects = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  });
+  })
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -97,7 +120,7 @@ const MyProjects = () => {
         staggerChildren: 0.2,
       },
     },
-  };
+  }
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
@@ -110,7 +133,7 @@ const MyProjects = () => {
         stiffness: 100,
       },
     },
-  };
+  }
 
   const iconVariants = {
     hidden: { y: -20, opacity: 0 },
@@ -124,13 +147,25 @@ const MyProjects = () => {
         delay: 0.5,
       },
     },
-  };
+  }
+
+  // Status badge variants
+  const statusVariants = {
+    hidden: { scale: 0, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        damping: 8,
+        stiffness: 100,
+        delay: 0.7,
+      },
+    },
+  }
 
   return (
-    <section
-      className="py-20 min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 overflow-hidden"
-      id="projects"
-    >
+    <section className="py-20 min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 overflow-hidden" id="projects">
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-16"
@@ -185,7 +220,7 @@ const MyProjects = () => {
             >
               <div className="relative">
                 <img
-                  src={project.image}
+                  src={project.image || "/placeholder.svg"}
                   alt={project.title}
                   className="w-full h-64 object-cover"
                 />
@@ -199,14 +234,22 @@ const MyProjects = () => {
                     View Project
                   </a>
                 </div>
+
+                {/* Status Badge */}
+                {project.status && (
+                  <motion.div className="absolute top-4 left-4 z-10" variants={statusVariants}>
+                    <span className="bg-yellow-400 text-yellow-900 font-medium text-xs px-3 py-1 rounded-full shadow-md flex items-center">
+                      <span className="w-2 h-2 bg-yellow-600 rounded-full mr-1.5 animate-pulse"></span>
+                      {project.status}
+                    </span>
+                  </motion.div>
+                )}
               </div>
               <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-2xl font-semibold mb-3 text-gray-800">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 mb-4 flex-grow line-clamp-4">
-                  {project.description}
-                </p>
+                <div className="flex justify-between items-start mb-3">
+                  <h3 className="text-2xl font-semibold text-gray-800">{project.title}</h3>
+                </div>
+                <p className="text-gray-600 mb-4 flex-grow line-clamp-4">{project.description}</p>
                 <a
                   href={project.liveUrl}
                   target="_blank"
@@ -236,7 +279,8 @@ const MyProjects = () => {
         </motion.div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default MyProjects;
+export default MyProjects
+
