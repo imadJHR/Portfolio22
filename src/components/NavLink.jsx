@@ -1,53 +1,37 @@
-import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+"use client"
+
+import { motion } from "framer-motion"
+import { Link } from "react-router-dom"
 
 function NavLink({ href, icon: Icon, label, isMobile }) {
-  const [isActive, setIsActive] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const section = document.querySelector(href);
-      if (section) {
-        const rect = section.getBoundingClientRect();
-        setIsActive(rect.top <= 100 && rect.bottom >= 100);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [href]);
-
-  return (
-    <motion.a
-      href={href}
-      className={`relative group ${
-        isMobile ? 'flex flex-col items-center p-2' : 'px-4 py-2'
-      }`}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
-    >
-      {isMobile ? (
-        <>
-          <Icon className={`text-2xl ${isActive ? 'text-primary' : 'text-gray-600'} group-hover:text-primary transition-colors`} />
-          <span className={`text-xs mt-1 ${isActive ? 'text-primary' : 'text-gray-600'} group-hover:text-primary transition-colors`}>
+  // For desktop navigation
+  if (!isMobile) {
+    return (
+      <motion.div whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
+        <Link to={href} className="relative group flex flex-col items-center">
+          <span className="text-gray-800 font-medium group-hover:text-blue-600 transition-colors duration-300">
             {label}
           </span>
-        </>
-      ) : (
-        <>
-          <span className={`${isActive ? 'text-primary' : 'text-gray-600'} group-hover:text-primary transition-colors`}>
-            {label}
-          </span>
-          <motion.div
-            className="absolute bottom-0 left-0 w-full h-0.5 bg-primary origin-left"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: isActive ? 1 : 0 }}
-            transition={{ duration: 0.2 }}
+          <motion.span
+            className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:w-full transition-all duration-300"
+            whileHover={{ width: "100%" }}
           />
-        </>
-      )}
-    </motion.a>
-  );
+        </Link>
+      </motion.div>
+    )
+  }
+
+  // For mobile navigation
+  return (
+    <Link
+      to={href}
+      className="flex flex-col items-center justify-center text-gray-700 hover:text-blue-600 transition-colors"
+    >
+      <Icon size={20} />
+      <span className="text-xs mt-1">{label}</span>
+    </Link>
+  )
 }
 
-export default NavLink;
+export default NavLink
+

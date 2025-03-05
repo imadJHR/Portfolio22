@@ -1,229 +1,64 @@
-'use client'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import { motion } from 'framer-motion';
 
-import { useState, useCallback, useRef } from 'react'
-import { motion } from 'framer-motion'
-import { Send, Mail, User, MessageSquare } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { toast, ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-import confetti from 'canvas-confetti'
+const testimonials = [
+  {
+    name: "Jean Dupont",
+    role: "CEO de StartupX",
+    text: "Nemsi Media a transformé notre présence digitale ! Leur expertise est exceptionnelle.",
+    image: "/client1.jpg",
+  },
+  {
+    name: "Sophie Martin",
+    role: "Fondatrice de Creatix",
+    text: "Une équipe talentueuse et réactive. Nos conversions ont explosé grâce à eux !",
+    image: "/client2.jpg",
+  },
+  {
+    name: "David Leroy",
+    role: "Directeur Marketing, TechFlow",
+    text: "Leur approche créative et stratégique a eu un impact énorme sur notre marque.",
+    image: "/client3.jpg",
+  },
+];
 
-const AnimatedContact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  })
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const audioContextRef = useRef(null)
-
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData((prevState) => ({ ...prevState, [name]: value }))
-  }
-
-  const playSuccessSound = useCallback(() => {
-    if (!audioContextRef.current) {
-      audioContextRef.current = new (window.AudioContext || window.webkitAudioContext)()
-    }
-
-    const context = audioContextRef.current
-    const oscillator = context.createOscillator()
-    const gainNode = context.createGain()
-
-    oscillator.connect(gainNode)
-    gainNode.connect(context.destination)
-
-    oscillator.type = 'sine'
-    oscillator.frequency.setValueAtTime(523.25, context.currentTime) // C5
-    gainNode.gain.setValueAtTime(0.5, context.currentTime)
-    gainNode.gain.exponentialRampToValueAtTime(0.01, context.currentTime + 0.5)
-
-    oscillator.start(context.currentTime)
-    oscillator.stop(context.currentTime + 0.5)
-  }, [])
-
-  const triggerConfetti = useCallback(() => {
-    const duration = 3 * 1000
-    const animationEnd = Date.now() + duration
-    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 }
-
-    function randomInRange(min, max) {
-      return Math.random() * (max - min) + min
-    }
-
-    const interval = setInterval(function() {
-      const timeLeft = animationEnd - Date.now()
-
-      if (timeLeft <= 0) {
-        return clearInterval(interval)
-      }
-
-      const particleCount = 50 * (timeLeft / duration)
-      confetti(Object.assign({}, defaults, { 
-        particleCount, 
-        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } 
-      }))
-      confetti(Object.assign({}, defaults, { 
-        particleCount, 
-        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } 
-      }))
-    }, 250)
-  }, [])
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-
-    try {
-      const response = await fetch('https://formspree.io/f/xldeqzlv', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      })
-
-      if (response.ok) {
-        toast.success('Message Sent! Thanks for reaching out.', {
-          position: 'top-right',
-        })
-        setFormData({ name: '', email: '', message: '' })
-        triggerConfetti()
-        playSuccessSound()
-      } else {
-        toast.error('Failed to send the message. Please try again.', {
-          position: 'top-right',
-        })
-      }
-    } catch (error) {
-      toast.error('An error occurred. Please try again later.', {
-        position: 'top-right',
-      })
-    }
-  }
-
-  const handleMouseMove = (e) => {
-    setMousePosition({ x: e.clientX, y: e.clientY })
-  }
-
+const Testimonials = () => {
   return (
-    <section
-      className="py-20 min-h-screen bg-gray-900 text-white flex items-center justify-center relative overflow-hidden"
-      onMouseMove={handleMouseMove}
-      id="contact"
-    >
-      <ToastContainer />
-
-      <motion.div
-        className="absolute inset-0 opacity-30"
-        animate={{
-          backgroundImage: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.3) 0%, rgba(16, 185, 129, 0) 50%)`,
-        }}
-        transition={{ type: 'spring', damping: 10, stiffness: 100 }}
-      />
-
-      {/* Decorative Elements */}
-      <motion.div
-        className="absolute top-10 left-10 w-20 h-20 bg-blue-500 rounded-full opacity-20"
-        animate={{
-          scale: [1, 1.2, 1],
-          rotate: [0, 180, 360],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          ease: "linear"
-        }}
-      />
-      <motion.div
-        className="absolute bottom-10 right-10 w-16 h-16 bg-green-500 rounded-full opacity-20"
-        animate={{
-          scale: [1, 1.3, 1],
-          rotate: [360, 180, 0],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "linear"
-        }}
-      />
-
-      <div className="container px-4 relative z-10">
-        <motion.div
-          className="max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 50 }}
+    <section id="testimonials" className="py-20 bg-gray-50 text-white">
+      <div className="container mx-auto px-6 text-center">
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl text-purple-600 font-bold mb-10"
         >
-          <div className="flex items-center justify-center mb-8">
-            <h2 className="text-4xl font-bold mr-4">Get in Touch</h2>
-            <motion.div
-              animate={{
-                rotate: [0, 10, -10, 0],
-                transition: { duration: 2, repeat: Infinity },
-              }}
-            >
-              <Send size={32} className="text-blue-400" />
-            </motion.div>
-          </div>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="relative">
-              <label htmlFor="name" className="block text-sm font-medium mb-2">
-                Name
-              </label>
-              <Input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full bg-gray-800 border-gray-700 text-white pl-10"
-              />
-              <User className="absolute left-3 top-9 text-gray-400" size={18} />
-            </div>
-            <div className="relative">
-              <label htmlFor="email" className="block text-sm font-medium mb-2">
-                Email
-              </label>
-              <Input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full bg-gray-800 border-gray-700 text-white pl-10"
-              />
-              <Mail className="absolute left-3 top-9 text-gray-400" size={18} />
-            </div>
-            <div className="relative">
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium mb-2"
+          Ce que disent nos clients
+        </motion.h2>
+        <Swiper spaceBetween={30} slidesPerView={1} breakpoints={{ 768: { slidesPerView: 2 } }}>
+          {testimonials.map((testimonial, index) => (
+            <SwiperSlide key={index}>
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="bg-gray-800 p-6 rounded-lg shadow-lg"
               >
-                Message
-              </label>
-              <Textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                className="w-full bg-gray-800 border-gray-700 text-white pl-10 pt-8"
-                rows={4}
-              />
-              <MessageSquare className="absolute left-3 top-9 text-gray-400" size={18} />
-            </div>
-            <Button type="submit" className="w-full">
-              Send Message
-            </Button>
-          </form>
-        </motion.div>
+                <p className="text-lg italic mb-4">“{testimonial.text}”</p>
+                <div className="flex items-center justify-center gap-4">
+                  <img src={testimonial.image} alt={testimonial.name} className="w-12 h-12 rounded-full" />
+                  <div>
+                    <h3 className="text-lg font-semibold">{testimonial.name}</h3>
+                    <p className="text-sm text-gray-400">{testimonial.role}</p>
+                  </div>
+                </div>
+              </motion.div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default AnimatedContact
-
+export default Testimonials;

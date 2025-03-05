@@ -1,17 +1,14 @@
-"use client"
-
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
-import { Code, Palette, Zap } from "lucide-react"
-import prj1 from "../assets/Capture d'écran 2024-12-20 154028.png"
-import prj2 from "../assets/Capture d'écran 2025-01-06 022010.png"
-import prj3 from "../assets/Capture d'écran 2025-01-07 015848.png"
-import iptv from "../assets/iptv.png"
-import tonka from "../assets/tonka.png"
-import copine from "../assets/copine.png"
-import nemsi from "../assets/nemsi.png"
-import bianca from "../assets/bianca.png"
-import labrioche from "../assets/labrioche.png"
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { Code, Palette } from "lucide-react";
+import prj1 from "../assets/Capture d'écran 2024-12-20 154028.png";
+import prj2 from "../assets/Capture d'écran 2025-01-06 022010.png";
+import prj3 from "../assets/Capture d'écran 2025-01-07 015848.png";
+import iptv from "../assets/iptv.png";
+import tonka from "../assets/tonka.png";
+import copine from "../assets/copine.png";
+import bianca from "../assets/bianca.png";
+import labrioche from "../assets/labrioche.png";
 
 const projects = [
   {
@@ -84,16 +81,7 @@ const projects = [
     icon: Code,
     status: null,
   },
-  {
-    id: 7,
-    title: "Nemsi Media",
-    description:
-      "Nemsi Media is a digital agency that provides high-quality web development, design, and digital marketing services. With a sleek and modern approach, Nemsi Media helps businesses establish a strong online presence through custom websites, e-commerce solutions, branding, and SEO strategies. Whether you need a stunning portfolio, an advanced web application, or a complete digital transformation, Semsi Media delivers tailored solutions to meet your needs. 🚀💡",
-    image: nemsi,
-    liveUrl: "https://nemsi-media.netlify.app/",
-    icon: Code,
-    status: null,
-  },
+
   {
     id: 8,
     title: "Restaurant La Brioche",
@@ -104,13 +92,13 @@ const projects = [
     icon: Code,
     status: "en cours",
   },
-]
+];
 
 const MyProjects = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  })
+  });
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -120,7 +108,7 @@ const MyProjects = () => {
         staggerChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
@@ -133,7 +121,7 @@ const MyProjects = () => {
         stiffness: 100,
       },
     },
-  }
+  };
 
   const iconVariants = {
     hidden: { y: -20, opacity: 0 },
@@ -147,7 +135,7 @@ const MyProjects = () => {
         delay: 0.5,
       },
     },
-  }
+  };
 
   // Status badge variants
   const statusVariants = {
@@ -162,55 +150,27 @@ const MyProjects = () => {
         delay: 0.7,
       },
     },
-  }
+  };
 
   return (
-    <section className="py-20 min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 overflow-hidden" id="projects">
-      <div className="container mx-auto px-4">
+    <section
+      className="py-20 w-full min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 overflow-hidden"
+      id="projects"
+    >
+      <div className=" px-4">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-        >
-          <h2 className="text-5xl font-bold mb-4 text-gray-800 relative inline-block">
-            Mes projets
-            <motion.span
-              className="absolute bottom-0 left-0 w-full h-1 bg-blue-500"
-              initial={{ width: 0 }}
-              animate={{ width: "100%" }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-            />
-          </h2>
-          <motion.div
-            className="w-16 h-16 mx-auto mt-4"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.7 }}
-          >
-            <svg
-              className="w-full h-full text-blue-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-              />
-            </svg>
-          </motion.div>
-        </motion.div>
+        ></motion.div>
 
         <motion.div
           ref={ref}
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 gap-12"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-12"
         >
           {projects.map((project) => (
             <motion.div
@@ -237,7 +197,10 @@ const MyProjects = () => {
 
                 {/* Status Badge */}
                 {project.status && (
-                  <motion.div className="absolute top-4 left-4 z-10" variants={statusVariants}>
+                  <motion.div
+                    className="absolute top-4 left-4 z-10"
+                    variants={statusVariants}
+                  >
                     <span className="bg-yellow-400 text-yellow-900 font-medium text-xs px-3 py-1 rounded-full shadow-md flex items-center">
                       <span className="w-2 h-2 bg-yellow-600 rounded-full mr-1.5 animate-pulse"></span>
                       {project.status}
@@ -247,9 +210,13 @@ const MyProjects = () => {
               </div>
               <div className="p-6 flex flex-col flex-grow">
                 <div className="flex justify-between items-start mb-3">
-                  <h3 className="text-2xl font-semibold text-gray-800">{project.title}</h3>
+                  <h3 className="text-2xl font-semibold text-gray-800">
+                    {project.title}
+                  </h3>
                 </div>
-                <p className="text-gray-600 mb-4 flex-grow line-clamp-4">{project.description}</p>
+                <p className="text-gray-600 mb-4 flex-grow line-clamp-4">
+                  {project.description}
+                </p>
                 <a
                   href={project.liveUrl}
                   target="_blank"
@@ -268,19 +235,9 @@ const MyProjects = () => {
             </motion.div>
           ))}
         </motion.div>
-
-        <motion.div
-          className="mt-16 flex justify-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.5 }}
-        >
-          <Zap className="w-12 h-12 text-yellow-400 animate-pulse" />
-        </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default MyProjects
-
+export default MyProjects;
